@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 无参构造器 -->
+	<bean id="f" class="com.woniu.b_springLife.Foo" init-method="fooInit" destroy-method="fooDestory">
+		<property name="id" value="1"></property>
+		<property name="name" value="扫地僧"></property>
+	</bean>
+	
+	<!-- 无参构造器 -->
+	<bean id="b" class="com.woniu.b_springLife.Bar">
+		<property name="id" value="1"></property>
+		<property name="name" value="邋遢鬼"></property>
+	</bean>
+</beans>

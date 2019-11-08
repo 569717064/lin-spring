@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 构造器实例化 -->
+	<bean id="dd" class="com.woniu.a_spring.DeptDAO" scope="prototype"></bean>
+	<!-- 静态工厂实例化 -->
+	<bean id="df1" class="com.woniu.a_spring.DAOFactory" factory-method="getDeptDAO"></bean>
+	<!-- 实例工厂实例化 -->
+	<bean id="df2" class="com.woniu.a_spring.DAOFactory2"></bean>
+	<bean id="df3" factory-bean="df2" factory-method="getDeptDAO"></bean>
+	
+	<!-- set注入 -->
+	<bean id="ds" class="com.woniu.a_spring.DeptService">
+		<!-- ref：引用别的bean -->
+		<property name="deptDAO" ref="dd"></property>
+	</bean>
+	
+	<!-- 构造器注入 -->
+	<bean id="ds2" class="com.woniu.a_spring.DeptService">
+		<constructor-arg name="deptDAO" ref="dd"></constructor-arg>
+	</bean>
+</beans>
